@@ -27,6 +27,8 @@
 #banner img{
     opacity: 0;
     max-width: 100%;
+    animation-fill-mode: forwards;
+    /* 마지막 프레임에서 멈춤 */
 }
 .container{
     width: var(--content);
@@ -39,17 +41,22 @@
 }
 .left .plain{
     /* transform: scale(0.55) translate(-120%, 130%);z-index: 100000; */
-    left: -32%;
-    top: 60%;
+    left: -38%;
+    top: 63%;
     width: 49%;
     z-index: 1000;
-    
+    animation-name: airp;
+    animation-delay: 2.5s;
+    animation-duration: 1.2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
 }
 .left .text1{
     /* transform: scale(0.9) translate(-30%, 60%); */
     top: 25%;
     right: 25%;
     animation-name: left;
+    animation-delay: 1s;
     animation-duration: 1s;
     animation-fill-mode: forwards;
 }
@@ -58,6 +65,7 @@
     top:6%;
     right: 5%;
     animation-name: right;
+    animation-delay: 1.5s;
     animation-duration: 1s;
     animation-fill-mode: forwards;
     
@@ -79,15 +87,29 @@
 .right .abs img:nth-child(1){
     width: 25%;
     height: 25%;
-    
-}
-.right .abs img{
     animation-name: clouds;
-    animation-delay: 1s;
-    animation-duration: 0.5s;
+    animation-delay: 1.5s;
+    animation-duration: 1s;
     animation-fill-mode: forwards;
     z-index: 10000;
 }
+.right .abs img:nth-child(2){
+    width: 30%;
+    height: 30%;
+    margin-right: 15%;
+    animation-name: clouds;
+    animation-delay: 1.8s;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    z-index: 10000;
+}
+/* .right .abs img{
+    animation-name: clouds;
+    animation-delay: 1.5s;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    z-index: 10000;
+} */
 .hp{
     animation-name: up;
     animation-duration: 1s;
@@ -107,7 +129,7 @@
 @keyframes left {
     0%{
         opacity: 0;
-        transform: translateX(-50%);
+        transform: translateX(-60%);
     }
     100%{
         opacity: 1;
@@ -129,11 +151,22 @@
 @keyframes clouds {
     0%{
         opacity: 0;
-        transform: translateY(50%);
+        transform: translateY(-30%);
     }
     100%{
         opacity: 1;
         transform: translateY(0);
+    }
+    
+}
+@keyframes airp {
+    0%{
+        opacity: 0;
+        transform: translateX(-50%);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0);
     }
     
 }
